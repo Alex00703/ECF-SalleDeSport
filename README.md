@@ -3,6 +3,7 @@
 Stack:
  HTML5
  CSS3
+ JS
  PHP 7.4
  Symfony 5.4
  SQL
