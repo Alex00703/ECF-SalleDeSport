@@ -8,5 +8,5 @@ Stack:
  
 
 Vous pouvez installer ce projet avec :
-https://github.com/Alex00703/ECF-SalleDeSport.git
+git clone https://github.com/Alex00703/ECF-SalleDeSport.git
 
