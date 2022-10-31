@@ -19,3 +19,5 @@ composer install
 Pour configurer la base de données vous devrez allez dans le fichier .env et de remplacer les informations de DATABASE_URL par les votres
 Pour faire les migrations vous pouvez utiliser cette commande : 'php bin/console make:migration'  et  'php bin/console doctrine:migrations:migrate'
 
+Vous devrez également configurer le Mailer, toujours dans le .env vous devez modifier la ligne MAILER_DSN et remplacer par votre DSN que vous pouvez créer sur mailtrap ou d'autres encore
+
