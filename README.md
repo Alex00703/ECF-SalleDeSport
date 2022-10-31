@@ -5,6 +5,8 @@ Stack:
  CSS3
  PHP 7.4
  Symfony 5.4
+ SQL
+ Twig
  
 
 Vous pouvez installer ce projet avec :
