@@ -1,0 +1,40 @@
+{% extends "dashboard.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <div class="form">
+            {{ form_start(form, { 'attr' : { 'class': 'formConfirm' } }) }}
+                <a href="{{ path('franchises') }}" class="return-arrow"><i class="fa fa-long-arrow-left fa-2x" aria-hidden="true"></i></a>
+
+                <h2 style="margin-bottom: 30px;">Modifier une franchise</h1>
+
+                <div class="input">
+                    {{ form_widget(form.email) }}
+                    <label for="edit_franchise_form_email">Email</label>
+                </div>
+
+                <div class="input">
+                    {{ form_widget(form.name) }}
+
+                    <label for="edit_franchise_form_name">Nom</label>
+                </div>
+
+                <div class="input">
+                    {{ form_widget(form.site) }}
+                    <label for="edit_franchise_form_email">Site</label>
+                </div>
+                <div>
+                    <label class="switch">
+                        {{ form_widget(form.state) }}
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+                
+                <div style="margin-top: 15px;">
+                    {{ form_widget(form.submit) }}
+                </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

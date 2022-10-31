@@ -1,0 +1,81 @@
+{% extends "dashboard.html.twig" %}
+
+{% block body %}
+    <div class="container">
+
+        <div class="form">
+
+            {{ form_start(form, { 'attr' : { 'class': 'formConfirm' } }) }}
+                <a href="{{ path('structures') }}" class="return-arrow"><i class="fa fa-long-arrow-left fa-2x" aria-hidden="true"></i></a>
+
+                <h2 style="margin-bottom: 30px;">Modifier une structure</h1>
+
+                    <table id="edit_structure_table">
+                        <tbody>
+                            <tr>
+                                <td>Vendre des boissons</td>
+                                <td>
+                                    <label class="switch">
+                                        {{ form_widget(form.sell_drinks) }}
+                                        <div class="slider round"></div>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Gestion du planning</td>
+                                <td>
+                                    <label class="switch">
+                                        {{ form_widget(form.manage_planning) }}
+                                        <div class="slider round"></div>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Boutique en ligne</td>
+                                <td>
+                                    <label class="switch">
+                                        {{ form_widget(form.shop) }}
+                                        <div class="slider round"></div>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Statistiques des membres</td>
+                                <td>
+                                    <label class="switch">
+                                        {{ form_widget(form.members_statistics) }}
+                                        <div class="slider round"></div>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Gestion des païements</td>
+                                <td>
+                                    <label class="switch">
+                                        {{ form_widget(form.payment_management) }}
+                                        <div class="slider round"></div>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>État</td>
+                                <td>
+                                    <label class="switch">
+                                        {{ form_widget(form.state) }}
+                                        <div class="slider round"></div>
+                                    </label>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                <div style="margin-top: 20px;">
+                    {{ form_widget(form.submit) }}
+
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>    
+{% endblock %}

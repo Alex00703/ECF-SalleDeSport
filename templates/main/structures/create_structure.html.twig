@@ -1,0 +1,36 @@
+{% extends "dashboard.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <div class="form">
+            {{ form_start(form, { 'attr' : { 'class': 'formConfirm' } }) }}
+                <a href="{{ path('structures') }}" class="return-arrow"><i class="fa fa-long-arrow-left fa-2x" aria-hidden="true"></i></a>
+
+                <h2 style="margin-bottom: 30px;">Créer une nouvelle structure</h1>
+
+                <div class="input">
+                    {{ form_widget(form.email) }}
+                    <label for="create_structure_form_email">Email</label>
+                </div>
+
+                <div class="input">
+                    {{ form_widget(form.name) }}
+
+                    <label for="create_structure_form_name">Nom</label>
+                </div>
+
+                <div class="input">
+                    {{ form_widget(form.address) }}
+                    <label for="create_structure_form_email">Adresse</label>
+                </div>
+
+                {{ form_label(form.franchise) }} <br>
+                {{ form_widget(form.franchise) }}
+
+                <div style="margin-top: 20px;">
+                    {{ form_widget(form.submit) }}
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

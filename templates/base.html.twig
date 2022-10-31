@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ECF - {% block title %}{% endblock %}</title>
+        <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <aside>{% block navbar %}{% endblock %}</aside>
+        <div id="confirm-popup" class="none">
+            <div id="popup-background">
+                <div id="popup-rect">
+                    <div id="popup-header">
+                        <i class="fa fa-exclamation-triangle fa-5x" aria-hidden="true"></i>
+                        <p id="popup-title">ÊTES-VOUS SÛR ?</p>
+                    </div>
+                    <hr style="position: relative; top: 123px;">
+                    <div id="popup-buttons">
+                        <button onclick="checker(false)" class="classic-btn" style="font-size: x-large; margin-right: 10px;">Annuler</button>
+                        <button onclick="checker(true)" class="alert-btn" style="font-size: x-large;">Confirmer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="marge">
+            {% block body %}{% endblock %}
+        </div>
+        <footer>{% block footer %}{% endblock %}</footer>
+    </body>
+</html>
+
+{% block js %}{% endblock %}
+
+

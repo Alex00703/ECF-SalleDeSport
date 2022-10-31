@@ -1,0 +1,46 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}Structures{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="container-header">
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('create_structure') }}" class="classic-btn">Nouvelle structure</a>
+            {% endif %}
+            <input type="search" class="searchbar" onkeyup="searchBar()" placeholder="Rechercher une structure..">
+            <button class="filtre" onclick="filterState('structure')"> Tout</button>
+        </div>
+        <div class="cadre-table-scroll">
+            <table class="table-scroll">
+            <thead>
+                <tr>
+                    <th>Nom de la structure</th>
+                    <th>Franchise</th>
+                    <th>Email</th>
+                    <th>Adresse</th>
+                    <th>État</th>
+                </tr>
+            </thead>
+            <tbody id="body-table" >
+                {% for structure in structures %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <tr class='clickable-row' data-href='{{ path('edit_structure', {'id': structure.getId() })}}'>
+                    {% else %}
+                        <tr class='clickable-row' data-href='{{ path('view_structure', {'id': structure.getId() })}}'>
+                    {% endif %}
+                        <td>{{ structure.getName() }}</td>
+                        <td>{{ userRepository.findFranchiseOfStructure(structureRepository.findByStructureId(structure.getId()).getFranchiseId()).getName() }}</td>
+                        <td>{{ structure.getEmail() }}</td>
+                        <td>{{ structure.getAddress() }}</td>
+                        {% if structure.getState() == 1 %}
+                            <td><span class="state green">Actif</span></td>
+                        {% else %}
+                            <td><span class="state red">Inactif</span></td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

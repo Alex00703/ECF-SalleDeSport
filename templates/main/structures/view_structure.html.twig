@@ -1,0 +1,29 @@
+{% extends "dashboard.html.twig" %}
+
+{% block body %}
+    <div class="container">
+
+        <div class="form">
+
+            <a href="{{ path('structures') }}" class="return-arrow"><i class="fa fa-long-arrow-left fa-2x" aria-hidden="true"></i></a>
+            <h2 style="margin-bottom: 30px;">Votre structure</h1>
+
+                <table id="edit_structure_table">
+                    <tbody>
+                        {% for i in 0.. (infos|length)-1 %}
+                            <tr>
+                                <td>{{ texts[i] }}</td>
+                                {% if infos[i] == 1 %}
+                                    <td><span class="state green">Actif</span></td>
+                                {% else %}
+                                    <td><span class="state red">Inactif</span></td>
+                                {% endif %}     
+                            </tr>
+                            <tr><td><br></td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>    
+{% endblock %}

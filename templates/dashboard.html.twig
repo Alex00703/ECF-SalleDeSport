@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar %}
+    <nav id="sidebar">
+        <div style="margin-top: 5%;">
+            <a href="{{ path('index') }}" class="item-sidebar"><i class="fa fa-home fa-2x"></i><span class="text-sidebar"> ACCUEIL</span></a>
+            {% if is_granted('ROLE_FRANCHISE') %}
+                <a href="{{ path('franchises') }}" class="item-sidebar"><i class="fa fa-user fa-2x"></i><span class="text-sidebar"> FRANCHISES</span></a>
+            {% endif %}
+            {% if is_granted('ROLE_STRUCTURE') %}
+                <a href="{{ path('structures') }}" class="item-sidebar"><i class="fa fa-sitemap fa-2x"></i><span class="text-sidebar"> STRUCTURES</span></a>
+            {% endif %}
+            <a href="{{ path('app_logout') }}" class="item-sidebar" id="logout"><i class="fa fa-sign-out fa-2x"></i><span class="text-sidebar"> DÉCONNEXION</span></a>
+        </div>
+    </nav>
+
+    <div id="nav-resp" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</a>
+        <div class="overlay-content">
+          <a href="{{ path('index') }}">ACCUEIL</a>
+          {% if is_granted('ROLE_FRANCHISE') %}
+            <a href="{{ path('franchises') }}">FRANCHISES</a>
+          {% endif %}
+          {% if is_granted('ROLE_STRUCTURE') %}
+            <a href="{{ path('structures') }}">STRUCTURES</a>
+          {% endif %}
+          <a href="{{ path('app_logout') }}">DÉCONNEXION</a>
+        </div>
+      </div>
+      <span class="buttonNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+{% endblock %}

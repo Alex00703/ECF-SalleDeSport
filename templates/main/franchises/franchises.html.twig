@@ -1,0 +1,46 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}Structures{% endblock %}
+
+{% block body %}
+    
+
+
+    <div class="container">
+        <div class="container-header">
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('create_franchise') }}" class="classic-btn">Nouvelle franchise</a>
+            {% endif %}
+            <input type="search" class="searchbar" onkeyup="searchBar()" placeholder="Rechercher une franchise..">
+            <button class="filtre" onclick="filterState('franchise')"> Tout</button>
+        </div>
+
+        <div class="cadre-table-scroll">
+            <table class="table-scroll">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>Site</th>
+                        <th>État</th>
+                    </tr>
+                </thead>
+                <tbody id="body-table">
+                    {% for franchise in franchises %}
+                        <tr class='clickable-row' data-href='{{ path('edit_franchise', {'id': franchise.getId() })}}'>
+                            <td>{{ franchise.getName() }}</td>
+                            <td>{{ franchise.getEmail() }}</td>
+                            <td>{{ franchise.getSite() }}</td>
+                            {% if franchise.getState() == 1 %}
+                                <td><span class="state green">Actif</span></td>
+                            {% else %}
+                                <td><span class="state red">Inactif</span></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
